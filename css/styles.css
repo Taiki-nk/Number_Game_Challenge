@@ -1,1 +1,78 @@
-/* No CSS *//*# sourceMappingURL=styles.css.map */
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.main-title {
+  text-align: center;
+}
+
+.container {
+  width: 140px;
+  margin: 0 auto;
+}
+
+.container #timer {
+  text-align: right;
+}
+
+.container #board {
+  margin: 10px auto;
+  padding: 0 10px 10px 10px;
+  border-radius: 4px;
+  background: #c0e7f7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.container #board li {
+  margin-top: 10px;
+  display: block;
+  list-style: none;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  background: #8686ff;
+  color: #fff;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 4px 0 0 #51547c;
+          box-shadow: 0 4px 0 0 #51547c;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  opacity: 0.9;
+}
+
+.container #board li:hover {
+  opacity: 1;
+}
+
+.container #board li:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin-top: 14px;
+  margin-bottom: -4px;
+}
+
+.container #board li.pushed {
+  background-color: #b6b6b6;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin-top: 14px;
+  margin-bottom: -4px;
+  opacity: 1;
+}
+
+.container #start-btn {
+  width: 100%;
+  margin: 0;
+}
+/*# sourceMappingURL=styles.css.map */
