@@ -18,7 +18,7 @@ body {
 
 .container #board {
   margin: 10px auto;
-  padding: 0 10px 10px 10px;
+  padding: 0 10px 16px 10px;
   border-radius: 4px;
   background: #c0e7f7;
   display: -webkit-box;
@@ -69,10 +69,26 @@ body {
   margin-top: 14px;
   margin-bottom: -4px;
   opacity: 1;
+  pointer-events: none;
 }
 
 .container #start-btn {
+  background: #e20d0d;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
   width: 100%;
   margin: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  outline: none;
+}
+
+.container #start-btn.pushed {
+  opacity: 0.3;
+  pointer-events: none;
 }
 /*# sourceMappingURL=styles.css.map */
