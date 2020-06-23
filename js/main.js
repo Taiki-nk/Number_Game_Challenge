@@ -79,6 +79,8 @@
       const board = new Board(this);
 
       board.boardStyle();
+      this.changeTitle();
+
       this.startBtn = document.getElementById("start-btn");
       this.startBtn.addEventListener("click", () => {
         this.startBtn.classList.add("pushed");
@@ -91,6 +93,11 @@
 
     getLevel() {
       return this.level;
+    }
+
+    changeTitle(){
+      const titleLevel = document.querySelector('.level');
+      titleLevel.textContent = gameLevel;
     }
 
     countUp() {
