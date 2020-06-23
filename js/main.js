@@ -3,7 +3,7 @@
 {
   class Panel {
     constructor(game) {
-      this.game = game
+      this.game = game;
       this.el = document.createElement("li");
       this.el.classList.add("pushed");
 
@@ -15,16 +15,16 @@
       });
     }
 
-    getEl(){
+    getEl() {
       return this.el;
     }
 
-    getCurrentNum(){
+    getCurrentNum() {
       return this.game.currentNum;
     }
 
-    addCurrentNum(){
-      this.game.currentNum ++;
+    addCurrentNum() {
+      this.game.currentNum++;
     }
 
     startGame() {
@@ -44,16 +44,19 @@
     constructor(game) {
       this.game = game;
       this.panels = [];
-      for(let i = 0; i < this.game.getLevel() ** 2; i++){
+      for (let i = 0; i < this.game.getLevel() ** 2; i++) {
         this.panels.push(new Panel(this.game));
       }
     }
 
-    
+    boardStyle() {
+      const container = document.querySelector(".container");
+      container.style.width = 60 * this.game.level + 10 + "px";
+    }
 
     showNumber() {
       this.nums = [];
-      for(let i = 0; i < this.game.getLevel() ** 2; i ++){
+      for (let i = 0; i < this.game.getLevel() ** 2; i++) {
         this.nums.push(i);
       }
       this.panels.forEach((panel) => {
@@ -75,6 +78,7 @@
       this.timeoutId = undefined;
       const board = new Board(this);
 
+      board.boardStyle();
       this.startBtn = document.getElementById("start-btn");
       this.startBtn.addEventListener("click", () => {
         this.startBtn.classList.add("pushed");
@@ -85,7 +89,7 @@
       });
     }
 
-    getLevel(){
+    getLevel() {
       return this.level;
     }
 
@@ -99,5 +103,21 @@
   }
   //ここまでGameクラス
 
-  new Game(3);
+  let gameLevel ;
+  function startGame() {
+    gameLevel = prompt("ゲームレベルを数字の2〜4の中で入力してください");
+    if (!parseInt(gameLevel) || gameLevel === "" || gameLevel === null || parseInt(gameLevel) < 2 || parseInt(gameLevel) > 5) {
+      console.log(gameLevel)
+      alert("もう一度入力してください");
+      startGame();
+    } else {
+      if(parseInt(gameLevel) !==NaN ){
+        new Game(gameLevel);
+      } 
+    }
+    
+    
+  }
+
+  startGame();
 }

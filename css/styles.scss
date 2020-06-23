@@ -11,7 +11,9 @@ body {
   text-align: center;
 }
 .container {
-  width: 200px;
+  //10 50 10 50 10 50 10
+  //(60 * panel) + 10
+  width: 130px;
   margin: 0 auto;
 
   #timer {
@@ -19,15 +21,19 @@ body {
   }
 
   #board {
-    margin: 10px auto;
-    padding: 0 10px 16px 10px;
+    margin: 0 auto;
+    padding-top: -10px;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 10px;
     border-radius: 4px;
     background: $main-color;
     display: flex;
-    justify-content: space-around;
+    // justify-content: space-between;
     flex-wrap: wrap;
 
     li {
+      margin-left: 10px;
       margin-top: 10px;
       display: block;
       list-style: none;
