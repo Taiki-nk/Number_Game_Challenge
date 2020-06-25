@@ -1,34 +1,60 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Number Game</title>
-  <link
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-154999891-3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-154999891-3");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Game</title>
+    <link
       href="https://fonts.googleapis.com/css2?family=Audiowide&family=Press+Start+2P&family=Righteous&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500&display=swap"
       rel="stylesheet"
     />
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://kit.fontawesome.com/f663631acc.js" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@tnk0501" />
+    <meta name="twitter:creator" content="@tnk0501" />
+    <meta property="og:url" content="https://taiki-create.com/number_game/" />
+    <meta property="og:title" content="Number Game" />
+    <meta
+      property="og:description"
+      content="数字を順番に押すだけの単純なゲーム。反応速度に自身があるならどうぞ！"
+    />
+    <meta
+      property="og:image"
+      content="https://taiki-create.com/number_game/img/numbergame_image.png"
+    />
+  </head>
+  <body>
+    <h1 class="main-title">GAME LEVEL <span class="level"></span></h1>
+    <div class="container">
+      <button id="start-btn">START</button>
 
-  <h1 class="main-title">GAME LEVEL <span class="level"></span></h1>
-  <div class="container">
+      <ul id="board"></ul>
+      <div id="timer">0.00</div>
+      <div id="score"></div>
 
-    <button id="start-btn">START</button>
-    
-    <ul id="board">
-      
-    </ul>
-    <div id="timer">0.00</div>
-    <div id="score"></div>
+      <div class="hidden-section">
+        <a id="tweet" target="_blank">
+          <img src="./img/twitter-icon.png" alt="" />
+        </a>
+        <div id="level-btn"><i class="fas fa-undo-alt"></i></div>
+      </div>
+    </div>
 
-    <a id="tweet" target="_blank">
-      結果をツイートする
-    </a>
-
-  </div>
-  
-  <script src="js/main.js"></script>
-</body>
+    <script src="js/main.js"></script>
+  </body>
 </html>

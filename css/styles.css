@@ -121,6 +121,7 @@ body::before {
 }
 
 .container #timer {
+  border-radius: 4px 4px 0 0;
   margin-top: 16px;
   background: rgba(0, 0, 0, 0.7);
   color: #0cb80c;
@@ -129,18 +130,56 @@ body::before {
 }
 
 .container #score {
+  padding-top: 10px;
   background: rgba(0, 0, 0, 0.7);
   color: #fff;
   font-size: 1rem;
 }
 
-.container #tweet {
+.container .hidden-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.container .hidden-section #tweet {
+  width: 100%;
+  text-align: center;
   color: #fff;
   cursor: pointer;
   display: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0 0 4px 4px;
+  opacity: 0.8;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-.container #tweet.active {
+.container .hidden-section #tweet:hover {
+  opacity: 1;
+}
+
+.container .hidden-section #tweet.active {
   display: block;
+}
+
+.container .hidden-section #level-btn {
+  line-height: 64px;
+  width: 100%;
+  font-size: 2.3rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: #5f3fee;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0.8;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.container .hidden-section #level-btn:hover {
+  opacity: 1;
 }
 /*# sourceMappingURL=styles.css.map */

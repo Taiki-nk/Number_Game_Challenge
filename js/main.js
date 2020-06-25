@@ -6,7 +6,7 @@
       this.game = game;
       this.el = document.createElement("li");
       this.el.classList.add("pushed");
-      this.time = timer.textContent;
+      this.game.time = timer.textContent;
 
       const board = document.getElementById("board");
       board.appendChild(this.el);
@@ -15,8 +15,6 @@
         this.startGame();
       });
     }
-
-    
 
     getEl() {
       return this.el;
@@ -39,8 +37,7 @@
         clearTimeout(this.game.timeoutId);
         this.game.startBtn.classList.remove("pushed");
         this.game.showScore();
-        this.time = timer.textContent;
-        console.log(this);
+        this.game.time = timer.textContent;
         tweet.classList.add("active");
       }
     }
@@ -99,6 +96,76 @@
         board.showNumber();
         this.countUp();
       });
+
+      //Twitter
+      this.tweet = document.getElementById("tweet");
+      tweet.addEventListener("click", () => {
+        this.tweetHref();
+      });
+
+      const levelBtn = document.getElementById('level-btn');
+      levelBtn.addEventListener('click', () => {
+        this.levelSelect()
+      })
+    }
+
+    levelSelect(){
+      const result = confirm('レベル選択へ戻りますか？ ※現在のスコアはリセットされてしまいます');
+      if(result){
+        location.reload(); 
+      }
+    }
+
+    tweetMessage() {
+      this.messages = [
+        "次はもっといけます！",
+        "反応速度は！ ...まあ普通ですね",
+        "次はもっとレベル上げて挑戦だ！",
+        "おそらく最速です！ おそらくですよ？",
+        "どうやら人の領域を超えました",
+        "この反応速度、神かもしれない…",
+      ];
+      if (gameLevel < 4) {
+        if (this.timer.textContent < 10) {
+          this.message = this.messages[2];
+        } else {
+          this.message = this.messages[1];
+        }
+      } else {
+        if (this.timer.textContent < 10) {
+          this.message = this.messages[5];
+        } else if (this.timer.textContent < 12) {
+          this.message = this.messages[4];
+        } else if (this.timer.textContent < 15) {
+          this.message = this.messages[3];
+        } else if (this.timer.textContent < 17) {
+          this.message = this.messages[1];
+        } else {
+          this.message = this.messages[0];
+        }
+      }
+    }
+
+    tweetHref() {
+      this.tweetMessage();
+
+      tweet.href =
+        "https://twitter.com/intent/tweet?text=ゲームレベル" +
+        gameLevel +
+        "でスコアは" +
+        this.time +
+        "秒でした!" +
+        "%0a" +
+        "%0a" +
+        "「" +
+        this.message +
+        "」" +
+        "%0a" +
+        "%0a" +
+        "@tnk0501" +
+        "が作ったミニアプリです" +
+        "%0a" +
+        "taiki-create.com/number_game/";
     }
 
     getLevel() {
@@ -121,7 +188,6 @@
       ];
       const scoreComent = document.getElementById("score");
       if (gameLevel < 4) {
-        console.log("test");
         if (this.timer.textContent < 10) {
           scoreComent.textContent = coments[2];
         } else {
@@ -154,8 +220,6 @@
   //ここまでGameクラス
 
   let gameLevel;
-  // let time = game.timer.textContent;
-
 
   function startGame() {
     gameLevel = prompt("ゲームレベルを数字の2〜4の中で入力してください");
@@ -166,7 +230,6 @@
       parseInt(gameLevel) < 2 ||
       parseInt(gameLevel) > 4
     ) {
-      console.log(gameLevel);
       alert("もう一度入力してください");
       startGame();
     } else {
@@ -176,15 +239,5 @@
     }
   }
 
-
-  function tweetHref() {
-    tweet.href = `https://twitter.com/intent/tweet?text=ゲームレベル${gameLevel}でスコアは${time}秒でした`;
-  };
-
   startGame();
-
-  this.tweet = document.getElementById("tweet");
-  tweet.addEventListener("click", () => {
-    tweetHref();
-  });
 }
