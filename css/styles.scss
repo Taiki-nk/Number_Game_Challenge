@@ -36,11 +36,25 @@ body {
   width: 130px;
   margin: 0 auto;
 
-  #timer {
-    background: rgba(0,0,0,0.7);
-    color: rgb(12, 184, 12);
-    font-size: 2rem;
-    text-align: center;
+  #start-btn {
+    font-family: "Audiowide", cursive;
+    background: rgb(194, 9, 9);
+    color: #fff;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 16px;
+    // margin: 0;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+
+    &.pushed {
+      opacity: 0.3;
+      pointer-events: none;
+
+    }
   }
 
   #board {
@@ -92,24 +106,27 @@ body {
     }
   }
 
-  #start-btn {
-    font-family: "Audiowide", cursive;
-    background: rgb(194, 9, 9);
-    color: #fff;
-    font-size: 1.5rem;
-    border: none;
-    border-radius: 4px;
-    width: 100%;
+  #timer {
     margin-top: 16px;
-    // margin: 0;
+    background: rgba(0,0,0,0.7);
+    color: rgb(12, 184, 12);
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  #score {
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    font-size: 1rem;
+  }
+
+  #tweet {
+    color: #fff;
     cursor: pointer;
-    user-select: none;
-    outline: none;
+    display: none;
 
-    &.pushed {
-      opacity: 0.3;
-      pointer-events: none;
-
+    &.active {
+      display: block;
     }
   }
 
